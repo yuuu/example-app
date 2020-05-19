@@ -63,19 +63,8 @@ App.consumer_groups.draw do
   consumer_group :batched_group do
     batch_fetching true
 
-    topic :xml_data do
-      consumer XmlMessagesConsumer
-      batch_consuming false
-      deserializer XmlDeserializer.new
-    end
-
-    topic :inline_batch_data do
-      consumer InlineBatchConsumer
-      batch_consuming true
-    end
-
-    topic :callbacked_data do
-      consumer CallbackedConsumer
+    topic :test_topic do
+      consumer PrintConsumer
       batch_consuming true
     end
   end
